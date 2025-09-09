@@ -1,9 +1,12 @@
 import { login } from "../../services/usersService";
 import { useNavigate } from "react-router-dom";
 import { setCookie } from "../../helpers/cookie";
+import { useDispatch } from "react-redux";
+import { checkLogin } from "../../actions/login";
 
 function Login() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -19,6 +22,7 @@ function Login() {
 
     if (response.code === 200) {
       setCookie("token", response.token, 1);
+      dispatch(checkLogin(true));
       navigate("/");
     } else {
       alert("Sai tai khoan hoac mat khau!")

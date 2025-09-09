@@ -1,9 +1,11 @@
 import { NavLink, Outlet } from "react-router-dom";
 import "./LayoutDefault.scss";
 import { getCookie } from "../../helpers/cookie";
+import { useSelector } from "react-redux";
 
 function LayoutDefault() {
   const token = getCookie("token");
+  const isLogin = useSelector(state => state.loginReducer);
   
   return (
     <>
