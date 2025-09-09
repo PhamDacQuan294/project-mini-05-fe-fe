@@ -18,7 +18,7 @@ function Login() {
     const response = await login(options);
 
     if (response.code === 200) {
-      setCookie("token", response.token);
+      setCookie("token", response.token, 1);
       navigate("/");
     } else {
       alert("Sai tai khoan hoac mat khau!")

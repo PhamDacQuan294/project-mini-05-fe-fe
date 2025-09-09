@@ -1,7 +1,10 @@
 import { NavLink, Outlet } from "react-router-dom";
 import "./LayoutDefault.scss";
+import { getCookie } from "../../helpers/cookie";
 
 function LayoutDefault() {
+  const token = getCookie("token");
+  
   return (
     <>
       <div className="layout-default">
@@ -12,17 +15,25 @@ function LayoutDefault() {
               <li>
                 <NavLink to="/" >Home</NavLink>
               </li>
-              <li>
-                <NavLink to="/topic" >Topic</NavLink>
-              </li>
-              <li>
-                <NavLink to="/answer" >Answers</NavLink>
-              </li>
+              {token && (
+                <>
+                  <li>
+                    <NavLink to="/topic" >Topic</NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/answer" >Answers</NavLink>
+                  </li>
+                </>
+              )}
             </ul>
           </div>
           <div className="layout-default__account">
-            <NavLink to="/login">Login</NavLink>
-            <NavLink to="/register">Register</NavLink>
+            {token ? (<>
+              <NavLink to="/logout">Logout</NavLink>
+            </>) : (<>
+              <NavLink to="/login">Login</NavLink>
+              <NavLink to="/register">Register</NavLink>
+            </>)}
           </div>
         </header>
         <main className="layout-default__main">
