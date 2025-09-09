@@ -20,6 +20,10 @@ function LayoutDefault() {
               </li>
             </ul>
           </div>
+          <div className="layout-default__account">
+            <NavLink to="/login">Login</NavLink>
+            <NavLink to="/register">Register</NavLink>
+          </div>
         </header>
         <main className="layout-default__main">
           <Outlet />
