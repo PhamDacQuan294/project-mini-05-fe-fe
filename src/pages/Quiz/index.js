@@ -29,6 +29,26 @@ function Quiz() {
   return (
     <>
       <h2>Bai Quiz chu de: {dataTopic && dataTopic[0]?.name}</h2>
+
+
+       <div className="form-quiz"> 
+        <form>
+          {dataQuestions.map((item, index) => (
+            <div className="form-quiz__item" key={item._id}>
+              <p>Cau {index + 1}: {item.question}</p>
+              {item.answers.map((itemAns, indexAns) => (
+                <div className="form-quiz__answer" key={indexAns}>
+                  <input type="radio" name="" value="" id="" />
+                  <label for="" >{itemAns}</label>
+                </div>
+              ))}
+            </div>
+          ))}
+          <button type="submit">
+            submit
+          </button>
+        </form>
+      </div>
     </>
   )
 }
