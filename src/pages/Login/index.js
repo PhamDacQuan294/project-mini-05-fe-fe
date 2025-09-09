@@ -22,6 +22,7 @@ function Login() {
 
     if (response.code === 200) {
       setCookie("token", response.token, 1);
+      setCookie("id", response.id, 1);
       dispatch(checkLogin(true));
       navigate("/");
     } else {
