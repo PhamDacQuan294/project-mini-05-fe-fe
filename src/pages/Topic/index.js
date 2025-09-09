@@ -32,7 +32,7 @@ function Topic() {
                 <td>{index + 1}</td>
                 <td>{item.name}</td>
                 <td>
-                  <Link to={"/quiz/" + item.id}>Lam bai</Link>
+                  <Link to={"/quiz/" + item._id}>Lam bai</Link>
                 </td>
               </tr>
             ))}
