@@ -1,5 +1,6 @@
 import { login } from "../../services/usersService";
 import { useNavigate } from "react-router-dom";
+import { setCookie } from "../../helpers/cookie";
 
 function Login() {
   const navigate = useNavigate();
@@ -17,6 +18,7 @@ function Login() {
     const response = await login(options);
 
     if (response.code === 200) {
+      setCookie("token", response.token);
       navigate("/");
     } else {
       alert("Sai tai khoan hoac mat khau!")
