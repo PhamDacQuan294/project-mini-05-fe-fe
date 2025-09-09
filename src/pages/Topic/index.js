@@ -27,9 +27,9 @@ function Topic() {
             </tr>
           </thead>
           <tbody>
-            {topics.map(item => (
+            {topics.map((item, index) => (
               <tr key={item._id}>
-                <td>{item.id}</td>
+                <td>{index + 1}</td>
                 <td>{item.name}</td>
                 <td>
                   <Link to={"/quiz/" + item.id}>Lam bai</Link>
