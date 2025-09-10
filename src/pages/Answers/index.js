@@ -43,7 +43,7 @@ function Answers() {
                 <td>{index + 1}</td>
                 <td>{item.name}</td>
                 <td>
-                  <Link to={"/result/" + item.id}>Xem chi tiet</Link>
+                  <Link to={"/result/" + item._id}>Xem chi tiet</Link>
                 </td>
               </tr>
             ))}
